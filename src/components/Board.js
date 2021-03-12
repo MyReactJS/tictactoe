@@ -2,14 +2,14 @@
 import React, { useState } from 'react';
 import Square from './Square';
 
-import './Square.Style.css';
-const Board = ({ board, handleSquareClick }) => {
+const Board = ({ board, handleSquareClick, winningSquares }) => {
     
-    console.log(board);
+    //console.log(board);
    
     const renderSquare = position => {
+        const isWinningSquare = winningSquares.includes(position);
         return (
-            <Square value={board[position]} onClick={() => handleSquareClick(position)} />
+            <Square value={board[position]} onClick={() => handleSquareClick(position)} isWinningSquare={isWinningSquare} />
 
         );
     };
